@@ -60,6 +60,21 @@ $(LIB_XDDCONN_CLIENT_STATIC): $(LIB_XDDCONN_CLIENT_OBJ)
 %.o: %.c $(INC)
 	$(call ccompile, $<, $@)
 
+install:
+	cp etc/init.d/xendevd /etc/init.d/
+	cp etc/systemd/system/xendevd.service /etc/systemd/system/
+	cp lib/libxddconn-client.so /lib/
+	cp lib/libxddconn-server.so /lib/
+	cp app/xendevd /usr/sbin/
+	updatedb
+
+uninstall:
+	rm /etc/init.d/xendevd/
+	rm /etc/systemd/system/xendevd.service
+	rm /lib/libxddconn-client.so
+	rm /lib/libxddconn-server.so
+	rm /usr/sbin/xendevd
+	updatedb
 
 clean:
 	$(call cmd, "CLN", "*.o [ app/  ]", rm -rf, $(patsubst %, %.o, $(APP)))
