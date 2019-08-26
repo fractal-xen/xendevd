@@ -66,6 +66,7 @@ install:
 	cp lib/libxddconn-client.so /lib/
 	cp lib/libxddconn-server.so /lib/
 	cp app/xendevd /usr/sbin/
+	cp app/xen-vif-hp /etc/xen/scripts/
 	updatedb
 
 uninstall:
@@ -74,6 +75,7 @@ uninstall:
 	rm /lib/libxddconn-client.so
 	rm /lib/libxddconn-server.so
 	rm /usr/sbin/xendevd
+	rm /etc/xen/scripts/xen-vif-hp
 	updatedb
 
 clean:
