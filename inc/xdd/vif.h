@@ -43,7 +43,10 @@
 #include <xenstore.h>
 
 
-int vif_hotplug_online(struct xs_handle* xs, const char* xb_path, const char* bridge, const char* vif);
-int vif_hotplug_offline(struct xs_handle* xs, const char* xb_path, const char* bridge, const char* vif);
+int vif_hotplug_online_xs(struct xs_handle* xs, const char* xb_path, const char* vif);
+int vif_hotplug_offline_xs(struct xs_handle* xs, const char* xb_path, const char* vif);
+
+int vif_hotplug_online_noxs(const char* vif, const char* bridge);
+int vif_hotplug_offline_noxs(const char* vif, const char* bridge);
 
 #endif /* __XDD_VIF_HH__ */
